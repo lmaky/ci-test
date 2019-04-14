@@ -31,11 +31,4 @@ jobs:
             - ./vendor
       - run:
           name: install lftp
-          command: |
-            sudo apt-get update -q
-            sudo apt-get install -y lftp
-      - run:
-          name: deploy docs
-          #command: lftp sftp://${DEPLOY_DOCS_USER}:${DEPLOY_DOCS_PASS}@${DEPLOY_DOCS_HOST} -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set sftp:auto-confirm yes; mirror -v -R ./site ${DEPLOY_DOCS_BASE}/doc/${CIRCLE_BRANCH}; quit"
-          command: lftp -c "open -u ${username},${password} ${hostname}; set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set sftp:auto-confirm yes; mirror --exclude .git/ -v -R ./ /htdocs/ --ignore-time; quit"
-
+          command: echo "done"
