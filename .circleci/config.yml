@@ -30,5 +30,8 @@ jobs:
           paths:
             - ./vendor
       - run:
+          name: php deploy
+          command: php deployment.phar deployment.ini
+      - run:
           name: install lftp
           command: echo "done"
